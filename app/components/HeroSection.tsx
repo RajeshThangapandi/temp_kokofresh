@@ -108,9 +108,9 @@ export function HeroSectionUpdates() {
     hover:brightness-95
     text-black
     font-extrabold
-    text-2xl
-    w-[320px]
-    py-4
+    text-xl sm:text-2xl
+    w-[260px] sm:w-[320px]
+    py-3 sm:py-4
     rounded-2xl
     shadow-[0_0_20px_rgba(254,214,73,0.6)]
     hover:shadow-[0_0_30px_rgba(254,214,73,0.9)]
@@ -121,6 +121,7 @@ export function HeroSectionUpdates() {
 >
   Shop Now
 </button>
+
 
 
       </motion.div>
