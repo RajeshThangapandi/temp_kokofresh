@@ -16,7 +16,7 @@ export function HeroSectionUpdates() {
       title: "Freshly Made",
       subtitle: "To Your Order",
       description:
-        "Every masala is crafted fresh when you order and delivered to your door. Experience the real meaning of made-to-order freshness.",
+        "Every masala is crafted fresh when you order and delivered to your doorstep. Experience the real meaning of freshly ground spices.",
       image:
         "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/fresh-masala-grinding-67YlV3a7WWaD1LwXvfDG7hBuGEot3E.jpg",
     },
@@ -24,7 +24,7 @@ export function HeroSectionUpdates() {
       title: "Farm Traceable",
       subtitle: "Ingredients",
       description:
-        "Know exactly where your food comes from — complete transparency from farm to kitchen.",
+        "Know exactly where your ingredients come from — offering complete transparency from farm to kitchen.",
       image:
         "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/indian-spice-farm-harvest-ugGkK6QZQ1jAUGD5mfz543JeNpEiv2.jpg",
     },
@@ -40,7 +40,7 @@ export function HeroSectionUpdates() {
       title: "100% Pure",
       subtitle: "Natural Ingredients",
       description:
-        "No preservatives. No additives. No palm oil. Only clean, real, authentic spices.",
+        "100% Pure Natural Ingredients No preservatives. No additives. No palm oil. Only clean, real, authentic spice blends.",
       image:
         "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/pure-natural-spices-array-S2R8scxEfC2ENnYCuI6LmJaApZjsek.jpg",
     },
