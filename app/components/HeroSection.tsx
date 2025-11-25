@@ -8,7 +8,6 @@ interface Slide {
   subtitle: string
   description: string
   image: string
-  accentColor: string
 }
 
 export function HeroSectionUpdates() {
@@ -20,7 +19,6 @@ export function HeroSectionUpdates() {
         "Every masala is crafted fresh when you order and delivered to your door. Experience the real meaning of made-to-order freshness.",
       image:
         "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/fresh-masala-grinding-67YlV3a7WWaD1LwXvfDG7hBuGEot3E.jpg",
-      accentColor: "from-amber-400 to-yellow-500",
     },
     {
       title: "Farm Traceable",
@@ -29,7 +27,6 @@ export function HeroSectionUpdates() {
         "Know exactly where your food comes from — complete transparency from farm to kitchen.",
       image:
         "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/indian-spice-farm-harvest-ugGkK6QZQ1jAUGD5mfz543JeNpEiv2.jpg",
-      accentColor: "from-green-400 to-emerald-500",
     },
     {
       title: "Authentic &",
@@ -38,7 +35,6 @@ export function HeroSectionUpdates() {
         "Small batch roasted. Crafted by skilled women artisans. Pure, traditional, and full of flavor.",
       image:
         "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/women-artisans-spices-b4lYC8QAIwE5cyUtXTrOXRqMUl7qNq.jpg",
-      accentColor: "from-orange-400 to-amber-500",
     },
     {
       title: "100% Pure",
@@ -47,7 +43,6 @@ export function HeroSectionUpdates() {
         "No preservatives. No additives. No palm oil. Only clean, real, authentic spices.",
       image:
         "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/pure-natural-spices-array-S2R8scxEfC2ENnYCuI6LmJaApZjsek.jpg",
-      accentColor: "from-rose-400 to-pink-500",
     },
   ]
 
@@ -71,7 +66,6 @@ export function HeroSectionUpdates() {
           transition={{ duration: 1.2 }}
           className="absolute inset-0"
         >
-          {/* BACKGROUND IMAGE */}
           <motion.img
             key={slides[current].image}
             src={slides[current].image}
@@ -82,46 +76,55 @@ export function HeroSectionUpdates() {
             className="absolute inset-0 h-full w-full object-cover"
           />
 
-          {/* DARK OVERLAY */}
-          <div className="absolute inset-0 bg-black/60" />
+          <div className="absolute inset-0 bg-black/65" />
         </motion.div>
       </AnimatePresence>
 
-      {/* CENTER CONTENT */}
       <motion.div
         initial={{ y: 30, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.2, duration: 0.9 }}
         className="absolute inset-0 flex flex-col items-center justify-center text-center px-6"
       >
-        {/* GRADIENT LINE */}
-        <div
-          className={`h-1 w-20 mb-5 rounded-full bg-gradient-to-r ${slides[current].accentColor}`}
-        />
+        <div className="h-1 w-24 mb-5 rounded-full bg-gradient-to-r from-[#FED649] to-white" />
 
-        {/* TITLE */}
         <h1 className="text-white font-serif font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight drop-shadow-xl">
           {slides[current].title}
           <br />
-          <span
-            className={`bg-gradient-to-r ${slides[current].accentColor} bg-clip-text text-transparent`}
-          >
+          <span className="bg-gradient-to-r from-[#FED649] to-white bg-clip-text text-transparent">
             {slides[current].subtitle}
           </span>
         </h1>
 
-        {/* DESCRIPTION */}
-        <p className="text-gray-300 mt-6 max-w-2xl text-base sm:text-lg md:text-xl leading-relaxed">
+        <p className="text-white/80 mt-6 max-w-2xl text-base sm:text-lg md:text-xl leading-relaxed">
           {slides[current].description}
         </p>
 
-        {/* CTA */}
-        <button className="mt-8 px-10 py-3.5 text-lg font-semibold bg-white text-black rounded-lg hover:bg-gray-200 transition-all shadow-xl">
-          Shop Now
-        </button>
+        {/* UPDATED CTA BUTTON */}
+<button
+  className="
+    mt-10
+    bg-gradient-to-r from-[#DD9627] via-[#FED649] to-[#B47B2B]
+    hover:brightness-95
+    text-black
+    font-extrabold
+    text-2xl
+    w-[320px]
+    py-4
+    rounded-2xl
+    shadow-[0_0_20px_rgba(254,214,73,0.6)]
+    hover:shadow-[0_0_30px_rgba(254,214,73,0.9)]
+    transition-all
+    duration-300
+    hover:scale-105
+  "
+>
+  Shop Now
+</button>
+
+
       </motion.div>
 
-      {/* DOTS */}
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-3 z-30">
         {slides.map((_, i) => (
           <button
@@ -129,8 +132,8 @@ export function HeroSectionUpdates() {
             onClick={() => setCurrent(i)}
             className={`h-2 rounded-full transition-all ${
               current === i
-                ? "w-8 bg-white"
-                : "w-2 bg-white/40 hover:bg-white/70"
+                ? "w-8 bg-[#FED649]"
+                : "w-2 bg-white/50 hover:bg-[#FED649]"
             }`}
           />
         ))}
