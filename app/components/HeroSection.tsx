@@ -101,7 +101,7 @@ export function HeroSectionUpdates() {
         className="absolute inset-0 flex flex-col items-center justify-center text-center px-6"
       >
         {/* GOLD BAR */}
-        <div className="h-1 w-24 mb-5 rounded-full bg-gradient-to-r from-[#FED649] to-white" />
+       <div className="h-1 w-24 mb-5 rounded-full bg-[#FED649]" />
 
 <h1
   className="
