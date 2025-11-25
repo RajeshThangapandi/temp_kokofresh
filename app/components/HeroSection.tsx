@@ -48,6 +48,7 @@ export function HeroSectionUpdates() {
 
   const [current, setCurrent] = useState(0)
 
+  // Auto slide change
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % slides.length)
@@ -55,11 +56,23 @@ export function HeroSectionUpdates() {
     return () => clearInterval(timer)
   }, [])
 
+  // Swipe / touch navigation
+  const handleSwipe = (offsetX: number) => {
+    if (offsetX > 80) {
+      setCurrent((prev) => (prev - 1 + slides.length) % slides.length)
+    } else if (offsetX < -80) {
+      setCurrent((prev) => (prev + 1) % slides.length)
+    }
+  }
+
   return (
-    <div className="relative mt-0 md:mt-0 h-[90vh] w-full overflow-hidden bg-black">
+    <div className="relative h-[90vh] w-full overflow-hidden bg-black mt-0 md:mt-0">
       <AnimatePresence initial={false}>
         <motion.div
           key={current}
+          drag="x"
+          dragConstraints={{ left: 0, right: 0 }}
+          onDragEnd={(e, info) => handleSwipe(info.offset.x)}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -80,52 +93,57 @@ export function HeroSectionUpdates() {
         </motion.div>
       </AnimatePresence>
 
+      {/* CENTER CONTENT */}
       <motion.div
         initial={{ y: 30, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.2, duration: 0.9 }}
         className="absolute inset-0 flex flex-col items-center justify-center text-center px-6"
       >
+        {/* GOLD BAR */}
         <div className="h-1 w-24 mb-5 rounded-full bg-gradient-to-r from-[#FED649] to-white" />
 
-        <h1 className="text-white font-serif font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight drop-shadow-xl">
-          {slides[current].title}
-          <br />
-          <span className="bg-gradient-to-r from-[#FED649] to-white bg-clip-text text-transparent">
-            {slides[current].subtitle}
-          </span>
-        </h1>
+        {/* TITLE WITH GOLD STROKE */}
+      <h1 className="font-serif font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight drop-shadow-xl">
+  <span className="bg-gradient-to-r from-[#FED649] to-white bg-clip-text text-transparent">
+    {slides[current].title}
+  </span>
+  <br />
+  <span className="bg-gradient-to-r from-[#FED649] to-white bg-clip-text text-transparent">
+    {slides[current].subtitle}
+  </span>
+</h1>
 
+
+        {/* DESCRIPTION */}
         <p className="text-white/80 mt-6 max-w-2xl text-base sm:text-lg md:text-xl leading-relaxed">
           {slides[current].description}
         </p>
 
-        {/* UPDATED CTA BUTTON */}
-<button
-  className="
-    mt-10
-    bg-gradient-to-r from-[#DD9627] via-[#FED649] to-[#B47B2B]
-    hover:brightness-95
-    text-black
-    font-extrabold
-    text-xl sm:text-2xl
-    w-[260px] sm:w-[320px]
-    py-3 sm:py-4
-    rounded-2xl
-    shadow-[0_0_20px_rgba(254,214,73,0.6)]
-    hover:shadow-[0_0_30px_rgba(254,214,73,0.9)]
-    transition-all
-    duration-300
-    hover:scale-105
-  "
->
-  Shop Now
-</button>
-
-
-
+        {/* CTA BUTTON */}
+        <button
+          className="
+            mt-10
+            bg-gradient-to-r from-[#DD9627] via-[#FED649] to-[#B47B2B]
+            hover:brightness-95
+            text-black
+            font-extrabold
+            text-xl sm:text-2xl
+            w-[260px] sm:w-[320px]
+            py-3 sm:py-4
+            rounded-2xl
+            shadow-[0_0_20px_rgba(254,214,73,0.6)]
+            hover:shadow-[0_0_30px_rgba(254,214,73,0.9)]
+            transition-all
+            duration-300
+            hover:scale-105
+          "
+        >
+          Shop Now
+        </button>
       </motion.div>
 
+      {/* DOTS */}
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-3 z-30">
         {slides.map((_, i) => (
           <button
