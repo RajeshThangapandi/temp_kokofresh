@@ -56,7 +56,7 @@ export function HeroSectionUpdates() {
   }, [])
 
   return (
-    <div className="relative mt-16 md:mt-20 h-[90vh] w-full overflow-hidden bg-black">
+    <div className="relative mt-0 md:mt-0 h-[90vh] w-full overflow-hidden bg-black">
       <AnimatePresence initial={false}>
         <motion.div
           key={current}
