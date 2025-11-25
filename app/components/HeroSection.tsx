@@ -103,16 +103,25 @@ export function HeroSectionUpdates() {
         {/* GOLD BAR */}
         <div className="h-1 w-24 mb-5 rounded-full bg-gradient-to-r from-[#FED649] to-white" />
 
-        {/* TITLE WITH GOLD STROKE */}
-      <h1 className="font-serif font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight drop-shadow-xl">
-  <span className="bg-gradient-to-r from-[#FED649] to-white bg-clip-text text-transparent">
-    {slides[current].title}
-  </span>
+<h1
+  className="
+    font-serif font-bold 
+    text-4xl sm:text-5xl md:text-6xl lg:text-7xl 
+    leading-tight 
+    text-[#FED649]
+    drop-shadow-[0_0_8px_rgba(255,220,120,0.9)]
+    drop-shadow-[0_0_16px_rgba(255,190,60,0.6)]
+    drop-shadow-[0_0_32px_rgba(255,160,20,0.4)]
+  "
+>
+  <span>{slides[current].title}</span>
   <br />
-  <span className="bg-gradient-to-r from-[#FED649] to-white bg-clip-text text-transparent">
-    {slides[current].subtitle}
-  </span>
+  <span>{slides[current].subtitle}</span>
 </h1>
+
+
+
+
 
 
         {/* DESCRIPTION */}
